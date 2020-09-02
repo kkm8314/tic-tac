@@ -165,7 +165,7 @@ class Game extends React.Component {
 
   render() {
     // state에서 history변수로 가져옴
-    // 현재 stepNumber의 {squares: squares}를 가져옴
+    // 현재 stepNumber의 {squares: squares}를 가져옴 (첫 stepNumber는 0이다.)
     // 현재 squares에서 winner가 나왔으면 winner변수로 가져옴
     const history = this.state.history;
     console.log('렌더 history : ', history)
@@ -173,13 +173,14 @@ class Game extends React.Component {
     //jumpTo를 통해 이게 바뀜
     const current = history[this.state.stepNumber];
     console.log('렌더 current ', current)
+    //current 값은 마지막 값 이다. ( squares : [null~~~] 요거)
     const winner = calculateWinner(current.squares);
+    // 이건 일단 null 배열이지.
 
     // React.Component를 통해서 render()를 비롯한
     // 나머지 Lifecycle Method에서는
     // this는 class와 bind됨
 
-    // console.log('this: ', this); //Game component
 
     // const a = function() {
     //     console.log("history: ", history);
