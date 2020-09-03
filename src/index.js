@@ -67,16 +67,14 @@ class Game extends React.Component {
     console.log("핸들클릭 history : ", history);
     const current = history[history.length - 1];
     console.log("핸들클릭 current", current);
-    // 즉 여기 squares는 맨마지막 squares를 갖고온거임
-    // slice() with no argument is equivalent to 'slice(0)'
-    // 왜 slice()가 빠지면 피드백이 안뜨지?
 
-    // slice()만하면 깊은복사됨
+
     const squares = current.squares.slice();
+    console.log("핸들클릭 squares", squares);
+
 
     // 기존의 스테이트를 변경할수없기때문에 slice를 사용하여서 가져왔다.
 
-    console.log("squares with slice()", squares);
     //console.log('squares with no slice', current.squares);
 
     // 이렇게 slice()를 빼면 jumpTo에서 Board에 제대로된 피드백이 안됨
@@ -136,13 +134,14 @@ class Game extends React.Component {
     // 현재 stepNumber의 {squares: squares}를 가져옴 (첫 stepNumber는 0이다.)
     // 현재 squares에서 winner가 나왔으면 winner변수로 가져옴
     const history = this.state.history;
-    //console.log("렌더 history : ", history);
+    console.log("렌더 history : ", history);
 
     //jumpTo를 통해 이게 바뀜
     const current = history[this.state.stepNumber];
-    // console.log("렌더 current ", current);
+    console.log("렌더 current ", current);
     //current 값은 지금현재의 스텝넘버 단계의 값 이다. ( squares : [null~~~] 요거)
     const winner = calculateWinner(current.squares);
+    console.log("랜더 winner ", winner)
     // 이건 일단 null 배열이지.
 
     // 어느단계(해당하는 히스토리)로 돌아가기위해 만들어 둔 기능
@@ -218,3 +217,4 @@ function calculateWinner(squares) {
   }
   return null;
 }
+
