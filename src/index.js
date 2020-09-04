@@ -85,13 +85,12 @@ class Game extends React.Component {
     // 혹은 현재도 squares[i]가 있다면 아무것도 리턴안함
     if (calculateWinner(squares) || squares[i]) {
       return;
-      //   console.log('hey');
     }
     // 이것은 O나 x를 리턴 한다 승자가 없으면 NULL
     // 오른쪽꺼는 원래는 널인데 클릭하는순간 O,X들어가서 다시클릭했을때 O,X가 오기때문에 그때는 함수가 끝나버린다.
 
     squares[i] = this.state.xIsNext ? "X" : "O";
-
+    console.log("zzzzzzzzzzz", squares);
     // 그리고 히스토리에는 현재 히스토리 array 뒤에
     // 새로운 square 히스토리를 넣음
     // 그리고 현재 턴을 알려주는 stepNumber는 history.length
@@ -102,6 +101,7 @@ class Game extends React.Component {
           squares: squares,
         },
       ]),
+
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
     });
